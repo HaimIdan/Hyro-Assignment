@@ -1,0 +1,14 @@
+/* 
+Please answer the following question as you would in SQL:
+In order to determine which specialty types patients are most interested in
+scheduling, please write a query that returns two columns:
+1. Specialty Type
+2. Number of Conversations corresponding to each specialty type.
+*/
+
+SELECT 
+    EVENT_DATA_IN_ORDER->>'specialty' as SpecialtyType,
+    COUNT(DISTINCT Conversation_ID) as NumOfConversations
+FROM Table
+GROUP BY 1
+ORDER BY 1 desc
